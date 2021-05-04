@@ -1,0 +1,23 @@
+{
+  "name": "vaccine-tracker",
+  "version": "1.0.0",
+  "description": "Covid Vaccine Tracker ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RSwallow987/Vaccine-tracker-.git"
+  },
+  "author": "Rachel Swallow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RSwallow987/Vaccine-tracker-/issues"
+  },
+  "homepage": "https://github.com/RSwallow987/Vaccine-tracker-#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,14 @@
+This is basically hosted through a web browser with no web server -
+once node.js has been activated then we are using a web server to host it so you can connect a database
+and do other fancy stuff. So you can do more backend stuff , where if you just use a webbrowser it can'then
+it can't do certain things. 
+
+If you have a web application hosted via a server, if the server is down then you can't access 
+the webpage, where as previsouly we were rending html directly to the webbrowser. 
+
+packaged.json has the configuration for the nodejs app. the script section has how we start the web app. 
+we can then use this in the command terminal to start our application. 
+
+Add your node modules folder to gitignore, since everytime you start the application it downloads these anyway. 
+
+// npm init creates a node js
