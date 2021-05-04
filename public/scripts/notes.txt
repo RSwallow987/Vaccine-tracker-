@@ -12,3 +12,26 @@ we can then use this in the command terminal to start our application.
 Add your node modules folder to gitignore, since everytime you start the application it downloads these anyway. 
 
 // npm init creates a node js
+
+
+
+// For database
+Add a new route to process the submitted form data. 
+This route will not be a GET (e.g. router.get("/", function (req, res)...) 
+but a POST (e.g. router.post("/", function (req, res)...) . 
+In this route you can then access the submitted form data and write it to the database. 
+
+Also, there is a really good tutorial here that illustrates creating a Node JS application
+ whose User interface has HTML forms and on submit the form data is saved to a SQLite 
+ database - https://blog.pagesd.info/2019/10/08/crud-with-express-sqlite-10-steps/ 
+
+
+ Routing:
+ Routing refers to determining how an application responds to a client request to a 
+ particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
+ Where:
+
+app is an instance of express.
+METHOD is an HTTP request method, in lowercase.
+PATH is a path on the server.
+HANDLER is the function executed when the route is matched.
