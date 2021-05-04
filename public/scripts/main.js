@@ -5,6 +5,6 @@ function processFormSubmission() {
     document.getElementById("form_fname").innerHTML = first_name;
     document.getElementById("form_lname").innerHTML = last_name; // document is the currently loaded html page 
   
-    // do not submit the form
-    return false;
+    // do  submit the form
+    return true;
   }
