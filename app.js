@@ -89,7 +89,7 @@ router.post("/", function (req, res) {
             return console.error(err.message);
           }
       res.render(__dirname + "/views/index.ejs",{ status: "Saved to DB" });
-      //res.redirect("/");
+      res.redirect("/");
     });
   });
 

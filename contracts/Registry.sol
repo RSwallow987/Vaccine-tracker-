@@ -1,6 +1,7 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.22 <0.9.0;
 
-contract Registry {
+contract Day1Registry {
 
   // define the struct Day1User
   struct Day1User {
