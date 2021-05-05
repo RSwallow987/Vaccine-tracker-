@@ -1,8 +1,6 @@
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 contract Day1Registry {
-
   // define the struct Day1User
   struct Day1User {
     string name;
@@ -25,3 +23,5 @@ contract Day1Registry {
     // return the length of the day1_users array
     return day1_users.length;
   }
+  
+}

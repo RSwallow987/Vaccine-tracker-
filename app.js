@@ -80,9 +80,9 @@ router.get("/", function (req, res) {
 
 // POST // gets the info submitted by the form 
 router.post("/", function (req, res) {
-    const user = [req.body.form_fname, req.body.form_lname];
-    console.log("Submitted name: " + req.body.form_fname);
-    console.log("Submitted surname: " + req.body.form_lname);
+    const user = [req.body.fname, req.body.lname];
+    console.log("Submitted name: " + req.body.fname);
+    console.log("Submitted surname: " + req.body.lname);
     const sql = "INSERT INTO User (Name, Surname) VALUES (?,?)";
     db.run(sql, user, (err) => {
         if (err) {
