@@ -15,45 +15,48 @@ app.use(express.static(path.join(__dirname, "public"))); //then e.g. this will w
 app.use(express.urlencoded({ extended: false })); // use the middleware “express.urlencoded()” so that request.body retrieves the posted values
 
 //Connection to database 
-const db_name = path.join(__dirname, "data", "apptest.db");
+const db_name = path.join(__dirname, "data", "vaccine.db");
 console.log("Database full path -" + db_name);
 const db = new sqlite3.Database(db_name, err => {
   if (err) {
     return console.error(err.message);
   }
-  console.log("Successful connection to the database 'apptest.db'");
+  console.log("Successful connection to the database 'vaccine.db'");
 });
 
-const sql_create = `CREATE TABLE IF NOT EXISTS User (
+const sql_create = `CREATE TABLE IF NOT EXISTS Vaccine (
     User_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Name VARCHAR(100) NOT NULL,
-    Surname VARCHAR(100) NOT NULL
+    Surname VARCHAR(100) NOT NULL,
+    Date VARCHAR(100) NOT NULL,
+    Vaccine VARCHAR(100) NOT NULL,
+    Place VARCHAR(100) NOT NULL
   );`;
 
   db.run(sql_create, (err) => {
     if (err) {
       return console.error(err.message);
     }
-    console.log("Successful creation of the 'User' table");
+    console.log("Successful creation of the 'Vaccine' table");
   });
 
 // Database seeding
-const sql_insert = `INSERT INTO User (Name, Surname) VALUES
-('R', 'Doe'),
-('Bill', 'Gates');`;
+const sql_insert = `INSERT INTO Vaccine (Name, Surname, Date, Vaccine, Place) VALUES
+('R', 'Doe','11-02-1998','J&J','Sandton'),
+('Bill', 'Gates','11-02-1998','J&J','Sandton');`;
 
 db.run(sql_insert, (err) => {
   if (err) {
     return console.error(err.message);
   }
-  console.log("Successful creation of 2 users");
+  console.log("Successful creation of 2 vaccine records");
 });
 
 //Get 
 // '/' means that the app requests for the root url 
 router.get("/", function (req, res) {
   
-    const sql = "SELECT * FROM User";
+    const sql = "SELECT * FROM Vaccine";
     db.all(sql, [], (err, rows) => {
       if (err) {
         return console.error(err.message);
@@ -80,10 +83,13 @@ router.get("/", function (req, res) {
 
 // POST // gets the info submitted by the form 
 router.post("/", function (req, res) {
-    const user = [req.body.fname, req.body.lname];
+    const user = [req.body.fname, req.body.lname,req.body.date,req.body.vaccine,req.body.place];
     console.log("Submitted name: " + req.body.fname);
     console.log("Submitted surname: " + req.body.lname);
-    const sql = "INSERT INTO User (Name, Surname) VALUES (?,?)";
+    console.log("Submitted date: " + req.body.date);
+    console.log("Submitted vaccine: " + req.body.vaccine);
+    console.log("Submitted place: " + req.body.place);
+    const sql = "INSERT INTO Vaccine (Name, Surname, Date, Vaccine, Place) VALUES (?,?,?,?,?)";
     db.run(sql, user, (err) => {
         if (err) {
             return console.error(err.message);
