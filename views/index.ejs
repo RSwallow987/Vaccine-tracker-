@@ -8,8 +8,11 @@
 </head>
 <body>
     <h1>Vaccine Tracker</h1> 
-    <h2><%= status %></h1>
     <h3> By Rachel Swallow</h3>
+
+    <h2>Blockchain Setup</h2>
+    <button class="enableEthereumButton">Enable Ethereum</button> 
+    <h2>Account: <span class="showAccount"></span></h2>
 
     <form name="Covid-19 Form" method="post" onsubmit="return processFormSubmission();" action="/" >
         <label for="fname">First name:</label><br />
@@ -26,7 +29,33 @@
       </form>
   
       <br />
+
+      <h2><%= status %></h1>
+
+       
   
+      <br />
+  
+        <ul>
+          <% if ( typeof(users) =="undefined") { %>
+            <li>No data</li> 
+          <% } else { %> 
+            <% for (let i = 0; i < users.length; i++) { %>
+              <li><%= users[i] %> - <%= users[i].Name %> - <%= users[i].Surname %></li>
+              <a  href="javascript:void(0);" class="btn btn-xs btn-success blockchain addUserToBlockchainBtn"
+                        data-fname="<%= users[i].Name%>"
+                        data-lname="<%=users[i].Surname%>"
+                        data-date="<%=users[i].Date%>"
+                        data-vaccine="<%=users[i].Vaccine%>"
+                        data-place="<%=users[i].Place%>">
+                        Add to Blockchain</a> 
+            <% } %>
+           <% } %>
+        
+        </ul>
+    
+      <br />
+    
       First Name:
       <p id="form_fname">-</p>
       Last Name:
@@ -38,6 +67,11 @@
       Vaccine Place:
       <p id="form_place">-</p>
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- jQuery from Google Content Delivery Network (CDN)-->
+      <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js" 
+      charset="utf-8" type="text/javascript"></script> <!-- This exposes the library as a global variable: ethers -->
       <script src="scripts/main.js"></script>
+      <script src="scripts/cvt_blockchain.js"></script>
+      <!--<script src="scripts/day1_blockchain.js"></script>--> 
 </body>
 </html>

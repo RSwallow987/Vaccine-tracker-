@@ -26,15 +26,15 @@ contract covidVaccineRegister{
     return vaccinationRecords.length;
     }
 
-    //function getVaccinationRecord(uint id) external view returns (struct){
-
+    //function getVaccinationRecord(uint index) external view returns (calldata vaccinationRecords)){
     //Can except value
     //Retrieves a particular instance of ‘VaccinationRecord’ from the array ‘vaccinationRecords’ given a valid index (0 <= index < length of the 'vaccinationRecords' array)
     //Throws an exception if an invalid index is passed to the function (Hint: to get the length of the 'vaccinationRecords' array, use the ‘getNumberOfVaccinations’ function you created in the previous step)
-
-    }
-
+    //if( index < (this.getNumberOfVaccinations() - 1) && index >= 0){
+    //  return vaccinationRecords[index];
+   // }
+    
+  //}
 
 }
-
 
