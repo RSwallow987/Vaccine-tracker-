@@ -13,15 +13,19 @@ contract Day1Registry {
 
   function registerUser(string calldata _name, string calldata _surname) external returns(uint){
     // get an instance of a Day1User using the input variables and push into the array of day1_users, returns the id
-    uint id = day1_users.push(Day1User(_name, _surname, msg.sender)) - 1;
-    
+    // get an instance of a Day1User using the input variables and push into the array of day1_users
+    day1_users.push(Day1User(_name, _surname, msg.sender)) ;
+    //return the id
+    uint id = this.getNumberOfUsers() - 1;
     // return the user id
-    return id;
-  }
+    return id ; 
+    }
 
   function getNumberOfUsers() external view returns(uint) {
     // return the length of the day1_users array
     return day1_users.length;
   }
-  
+
 }
+
+
