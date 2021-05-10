@@ -89,6 +89,7 @@ router.post("/", function (req, res) {
     console.log("Submitted date: " + req.body.date);
     console.log("Submitted vaccine: " + req.body.vaccine);
     console.log("Submitted place: " + req.body.place);
+    
     const sql = "INSERT INTO Vaccine (Name, Surname, Date, Vaccine, Place) VALUES (?,?,?,?,?)";
     db.run(sql, user, (err) => {
         if (err) {
