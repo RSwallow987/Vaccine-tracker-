@@ -14,9 +14,9 @@ const isMetaMaskInstalled = () => {
     //$(document).ready(function () {
   
     let accounts;
-    let day1ContractABI;
-    let day1ContractAddress;
-    let day1Contract;
+    let vaccineContractABI;
+    let vaccineContractAddress;
+    let vaccineContract;
   
     const isMetaMaskConnected = () => accounts && accounts.length > 0;
   
@@ -69,12 +69,12 @@ const isMetaMaskInstalled = () => {
      */
   
     // in order to create a contract instance, we need the contract address and its ABI
-    day1ContractAddress = "0x93CCde6Cd8BEDBe2B88d4f6b63a6850994926096";//update based on metamask 
+    vaccineContractAddress = "0xe2948F4b695C9c8CC463D470577Ae6F90A9797C7";//update based on metamask 
   
     // the Application Binary interface (ABI) of the contract code is just a list of method signatures,
     // return types, members etc of the contract in a defined JSON format.
     // This ABI is needed when you will call your contract from a real javascript client e.g. a node.js web application.
-    day1ContractABI = [
+    vaccineContractABI = [
         {
              "inputs": [
                 {
@@ -199,7 +199,7 @@ const isMetaMaskInstalled = () => {
           */
   
     // call addDay1UserToBlockchain() function on button click
-    $(".addUserToBlockchainBtn").click(addDay1UserToBlockchain);
+    $(".addUserToBlockchainBtn").click(addvaccineToBlockchain);
   
     // trigger smart contract call to getNumberOfUsersCount() function after clicking on User count button
     /*     $("#getUserCountBtn").click(function (e) {
@@ -230,12 +230,12 @@ const isMetaMaskInstalled = () => {
       console.log("function handle_error(err).");
       // var message_type = CONSTANTS.ERROR; //error or success
       var error_data = err.data;
-      var message_description = "Day1 Smart contract call failed: " + err;
+      var message_description = "Vaccine Smart contract call failed: " + err;
       if (typeof error_data !== "undefined") {
         var error_message = error_data.message;
         if (typeof error_message !== "undefined") {
           message_description =
-            "Day1 smart contract call failed: " + error_message;
+            "Vaccine smart contract call failed: " + error_message;
         }
       }
   
@@ -255,8 +255,8 @@ const isMetaMaskInstalled = () => {
     }
   
     // function Add to Blockchain
-    async function addDay1UserToBlockchain() {
-      //day1 user form data
+    async function addvaccineToBlockchain() {
+      //vaccine user form data
       var fname = $(this).data("fname");
       var lname = $(this).data("lname");
       var date = $(this).data("date");
@@ -278,13 +278,13 @@ const isMetaMaskInstalled = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       console.log({ provider });
       const signer = provider.getSigner();
-      const day1Contract = new ethers.Contract(
-        day1ContractAddress,
-        day1ContractABI,
+      const vaccineContract = new ethers.Contract(
+        vaccineContractAddress,
+        vaccineContractABI,
         signer
       );
       try {
-        const transaction = await day1Contract.createVaccinationRecord(fname, lname,date,vaccine,place);
+        const transaction = await vaccineContract.createVaccinationRecord(fname, lname,date,vaccine,place);
         const data = await transaction.wait();
         console.log("data: ", data);
       } catch (err) {
@@ -321,15 +321,15 @@ const isMetaMaskInstalled = () => {
         return handle_web3_undefined_error();
       }
   
-      day1Contract.getNumberOfVaccinations(function (err, result) {
+      vaccineContract.getNumberOfVaccinations(function (err, result) {
         if (err) {
           return handle_error(err);
         }
   
-        let day1UserSubmissionsCount = result.toNumber(); // Output from the contract function call
+        let VaccineUserSubmissionsCount = result.toNumber(); // Output from the contract function call
   
-        console.log("getNumberOfUsersCount: " + day1UserSubmissionsCount);
-        var message_description = `Number of User Entries in Day1 registry: + ${day1UserSubmissionsCount}`;
+        console.log("getNumberOfUsersCount: " +  VaccineUserSubmissionsCount);
+        var message_description = `Number of User Entries in Vaccine registry: + ${day1UserSubmissionsCount}`;
   
         // TODO - trigger notification
         return console.log(message_description);

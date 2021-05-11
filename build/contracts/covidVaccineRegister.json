@@ -43,7 +43,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -95,7 +96,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_Name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_Surname\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_VaccinationDate\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_VaccineName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_VaccinationPlace\",\"type\":\"string\"}],\"name\":\"createVaccinationRecord\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getNumberOfVaccinations\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"vaccinationRecords\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"Name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"Surname\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"VaccinationDate\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"VaccineName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"VaccinationPlace\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"added_by\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/rswal/Dev/fintech2021/Vaccine-tracker/contracts/cvt.sol\":\"covidVaccineRegister\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/rswal/Dev/fintech2021/Vaccine-tracker/contracts/cvt.sol\":{\"keccak256\":\"0xa894e5f7439e3725ac762dddbc9b045cc258635bc978c95aae26f25512a7c848\",\"urls\":[\"bzz-raw://892e86498aaa80ac1c58e29b561ffd0ae62f11238424086dfc235ab11cdd89fb\",\"dweb:/ipfs/QmeuGyH51P8YLLomiD6iESnyNTYmYHCoTYwC3NcA1EmBos\"]}},\"version\":1}",
@@ -6121,9 +6123,17 @@
     "name": "solc",
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xe2948F4b695C9c8CC463D470577Ae6F90A9797C7",
+      "transactionHash": "0x674d0d4c7970e9c3852e255d3fa459367676cbc2b1d4005dc97915de018169f9"
+    }
+  },
   "schemaVersion": "3.4.0",
-  "updatedAt": "2021-05-06T08:35:26.366Z",
+  "updatedAt": "2021-05-11T06:14:41.410Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
