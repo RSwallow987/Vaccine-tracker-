@@ -43,7 +43,8 @@ const sql_create = `CREATE TABLE IF NOT EXISTS Vaccine (
 // Database seeding
 const sql_insert = `INSERT INTO Vaccine (Name, Surname, Date, Vaccine, Place) VALUES
 ('R', 'Doe','11-02-1998','J&J','Sandton'),
-('Bill', 'Gates','11-02-1998','J&J','Sandton');`;
+('Bill', 'Gates','11-02-1998','J&J','Sandton'),
+('Satoshi', 'Nakamototo','11-02-1998','J&J','Mystery');`;
 
 db.run(sql_insert, (err) => {
   if (err) {
